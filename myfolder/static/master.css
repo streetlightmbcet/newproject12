@@ -1,0 +1,40 @@
+.circle {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  width: 250px;
+  padding: 30px;
+  border-radius: 50%;
+  border-width: 10px 9px 9px 10px;
+  border-style: solid;
+  border-color: #db2555;
+  font-size: 50px;
+  color: red;
+  line-height: 175px;
+  text-align: center;
+  background: white;
+}
+#battery-graph{
+  height:500px;
+}
+#teamimage{
+  height:50px;
+}
+#guide{
+  height:80px;
+}
+#cardguide{
+  width:300px;
+}
+#meettheteam{
+  background-image:url('meettheteam.svg');
+  background-size: 100% 100%;
+}
+#cardguide1{
+  margin: auto;
+  padding: 10px;
+}
+#carouselExampleControls{
+  height:25%;
+  width:100%;
+}
