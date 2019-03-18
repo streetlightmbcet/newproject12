@@ -10,6 +10,9 @@ login_manager = LoginManager()
 
 app = Flask(__name__)
 
+from myfolder.error_pages.handlers import error_pages
+app.register_blueprint(error_pages)
+
 # Often people will also separate these into a separate config.py file
 app.config['SECRET_KEY'] = 'mysecretkey'
 basedir = os.path.abspath(os.path.dirname(__file__))
