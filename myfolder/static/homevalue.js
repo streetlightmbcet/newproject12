@@ -56,7 +56,7 @@ $.get({
       var chart = new FusionCharts({
           type: 'line',
           renderAt: 'chart-container',
-          width: '675',
+          width: '100%',
           height: '400',
           dataFormat: 'json',
           dataSource: {
