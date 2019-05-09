@@ -8,11 +8,13 @@ $.get({
     i = len-1,
     parsedData = [];
     var a = data[i].title.$t;
-    document.getElementById("led").innerHTML =a;
+    if(a===0){document.getElementById("led").innerHTML = 'OFF';}
+    else{document.getElementById("led").innerHTML = 'ON';}
+
   }
 });
-var spreadsheetId = "1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo",
-    url = "https://spreadsheets.google.com/feeds/list/1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo/od6/public/basic?alt=json";
+var spreadsheetId = "15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM",
+    url = "https://spreadsheets.google.com/feeds/list/15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM/od6/public/basic?alt=json";
 $.get({
     url: url,
     success: function(response) {

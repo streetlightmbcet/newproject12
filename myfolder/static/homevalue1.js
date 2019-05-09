@@ -8,6 +8,8 @@ $.get({
     i = len-1,
     parsedData = [];
     var a = data[i].title.$t;
+    if(a===0){var status="OFF";}
+    else{var status="ON";}
     document.getElementById("led").innerHTML =a;
   }
 });

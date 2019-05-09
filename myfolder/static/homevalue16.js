@@ -8,11 +8,13 @@ $.get({
     i = len-1,
     parsedData = [];
     var a = data[i].title.$t;
-    document.getElementById("led").innerHTML =a;
+    if(a===0){document.getElementById("led").innerHTML = 'OFF';}
+    else{document.getElementById("led").innerHTML = 'ON';}
+
   }
 });
-var spreadsheetId = "1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo",
-    url = "https://spreadsheets.google.com/feeds/list/1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo/od6/public/basic?alt=json";
+var spreadsheetId = "15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM",
+    url = "https://spreadsheets.google.com/feeds/list/15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM/od6/public/basic?alt=json";
 $.get({
     url: url,
     success: function(response) {
@@ -23,8 +25,8 @@ $.get({
     document.getElementById("currentA").innerHTML =data[i].title.$t;
   }
 });
-var spreadsheetId = "1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo",
-    url = "https://spreadsheets.google.com/feeds/list/1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo/od6/public/basic?alt=json";
+var spreadsheetId = "1KSG6IBgAHO23M8HXaXzTILl5hxC1LfczRvGgzrmpheQ",
+    url = "https://spreadsheets.google.com/feeds/list/1KSG6IBgAHO23M8HXaXzTILl5hxC1LfczRvGgzrmpheQ/od6/public/basic?alt=json";
 $.get({
     url: url,
     success: function(response) {
@@ -32,11 +34,11 @@ $.get({
     len = data.length,
     i = len-1,
     parsedData = [];
-    document.getElementById("Voltage").innerHTML =data[i].title.$t;
+    document.getElementById("Voltage").innerHTML =data[i].content.$t.replace('_cokwr:', '');
   }
 });
-var spreadsheetId = "1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y",
-    url = "https://spreadsheets.google.com/feeds/list/1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y/od6/public/basic?alt=json";
+var spreadsheetId = "1kWAr_NW3eGoeW8V_NhR8nff5Xjh1sF60vfiakAjaccs",
+    url = "https://spreadsheets.google.com/feeds/list/1kWAr_NW3eGoeW8V_NhR8nff5Xjh1sF60vfiakAjaccs/od6/public/basic?alt=json";
 
 $.get({
   url: url,
@@ -46,10 +48,10 @@ $.get({
       i = len-10,
       parsedData = [];
 
-    for (i = len-10; i < len; i++) {
+    for (i = len-7; i < len; i++) {
       parsedData.push({
-        label: data[i].title.$t.substring(0,data[i].title.$t.length-17),
-        value: data[i].content.$t.replace('drive: drive, _cpzh4: ', '')
+        label: data[i].title.$t.substr(-7),
+        value: data[i].content.$t.replace('_cokwr:', '')
       });
     }
 
@@ -57,13 +59,13 @@ $.get({
       var chart = new FusionCharts({
           type: 'line',
           renderAt: 'chart-container',
-          width: '100%',
+          width: '675',
           height: '400',
           dataFormat: 'json',
           dataSource: {
             "chart": {
-              "caption": "Data From ESP8266",
-            "yAxisName": "Random Numbers(ascending)",
+              "caption": "LED LAMPS POWER CONSUMPTION MONITORING",
+            "yAxisName": "Power Consumed(W)",
             "xAxisName": "Time Frame",
             "numdisplaysets":"10",
             "baseFont": "Open Sans",
@@ -108,8 +110,8 @@ $.get({
   }
 });
 
-var spreadsheetId = "1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo",
-    url = "https://spreadsheets.google.com/feeds/list/1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo/od6/public/basic?alt=json";
+var spreadsheetId = "1dFxT33qzCXmwXh8vjGruCAhlaGVJsYWb3bJFB8L6o1M",
+    url = "https://spreadsheets.google.com/feeds/list/1dFxT33qzCXmwXh8vjGruCAhlaGVJsYWb3bJFB8L6o1M/od6/public/basic?alt=json";
 
 $.get({
   url: url,
@@ -120,8 +122,8 @@ $.get({
       parsedData = [];
       var a = data[i].title.$t;
 
-      var spreadsheetId = "1RKBPJkauPxU2SWPkmgvFGS2JC0bs-AKXWWNAGzBdAsM",
-          url = "https://spreadsheets.google.com/feeds/list/1RKBPJkauPxU2SWPkmgvFGS2JC0bs-AKXWWNAGzBdAsM/od6/public/basic?alt=json";
+      var spreadsheetId = "1rCz3NZH5gMf-T8BP7udnpUXWJMqBGqPn_gzuNcH057A",
+          url = "https://spreadsheets.google.com/feeds/list/1rCz3NZH5gMf-T8BP7udnpUXWJMqBGqPn_gzuNcH057A/od6/public/basic?alt=json";
       $.get({
         url: url,
         success: function(response) {
@@ -146,8 +148,8 @@ $.get({
 
 //Energy Monitoring of StreetLight -daily
 
-var spreadsheetId = "1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y",
-    url = "https://spreadsheets.google.com/feeds/list/1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y/od6/public/basic?alt=json";
+var spreadsheetId = "1kWAr_NW3eGoeW8V_NhR8nff5Xjh1sF60vfiakAjaccs",
+    url = "https://spreadsheets.google.com/feeds/list/1kWAr_NW3eGoeW8V_NhR8nff5Xjh1sF60vfiakAjaccs/od6/public/basic?alt=json";
 
 $.get({
   url: url,
@@ -157,10 +159,10 @@ $.get({
       i = len-10,
       parsedData = [];
 
-    for (i = len-10; i < len; i++) {
+    for (i = len-7; i < len; i++) {
       parsedData.push({
-        label: data[i].title.$t.substring(0,data[i].title.$t.length-17),
-        value: data[i].content.$t.replace('drive: drive, _cpzh4: ', '')
+        label: data[i].title.$t.substr(-7),
+        value: data[i].content.$t.replace('_cokwr:', '')
       });
     }
 
@@ -168,13 +170,13 @@ $.get({
       var chart = new FusionCharts({
           type: 'line',
           renderAt: 'streetlight-energychart-daily',
-          width: '100%',
-          height: '350',
+          width: '675',
+          height: '400',
           dataFormat: 'json',
           dataSource: {
             "chart": {
-              "caption": "Data From ESP8266",
-            "yAxisName": "Random Numbers(ascending)",
+              "caption": "LED LAMPS POWER CONSUMPTION MONITORING",
+            "yAxisName": "Power Consumed(W)",
             "xAxisName": "Time Frame",
             "numdisplaysets":"10",
             "baseFont": "Open Sans",
@@ -220,21 +222,21 @@ $.get({
 });
 //Energy Monitoring of StreetLight -weekly
 
-var spreadsheetId = "1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y",
-    url = "https://spreadsheets.google.com/feeds/list/1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y/od6/public/basic?alt=json";
+var spreadsheetId = "1KSG6IBgAHO23M8HXaXzTILl5hxC1LfczRvGgzrmpheQ",
+    url = "https://spreadsheets.google.com/feeds/list/1KSG6IBgAHO23M8HXaXzTILl5hxC1LfczRvGgzrmpheQ/od6/public/basic?alt=json";
 
 $.get({
   url: url,
   success: function(response) {
     var data = response.feed.entry,
       len = data.length,
-      i = len-10,
+      i = len-5,
       parsedData = [];
 
     for (i = len-10; i < len; i++) {
       parsedData.push({
         label: data[i].title.$t.substring(0,data[i].title.$t.length-17),
-        value: data[i].content.$t.replace('drive: drive, _cpzh4: ', '')
+        value: data[i].content.$t.replace('_cokwr:', '')
       });
     }
 

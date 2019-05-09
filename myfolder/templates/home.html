@@ -28,7 +28,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="..\static\fusioncharts-suite-xt\js\fusioncharts.js"></script>
     <!--READ CLOUD DATA FOR HOME-->
-    <script src="../static/homevalue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/homevalue21.js" type="text/javascript" charset="utf-8"></script>
     <!--To make pdf file-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
@@ -250,8 +250,8 @@
           button.addEventListener('click', printPDF)
            // actual PDF options
           function printPDF() {
-               var spreadsheetId = "1RKBPJkauPxU2SWPkmgvFGS2JC0bs-AKXWWNAGzBdAsM",
-                url = "https://spreadsheets.google.com/feeds/list/1RKBPJkauPxU2SWPkmgvFGS2JC0bs-AKXWWNAGzBdAsM/od6/public/basic?alt=json";
+               var spreadsheetId = "15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM",
+                url = "https://spreadsheets.google.com/feeds/list/15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM/od6/public/basic?alt=json";
                $.get({
                  url: url,
                  success: function(response) {
@@ -262,10 +262,28 @@
                  var b = data[i].title.$t;
                  var dt = new Date();
                  var a = dt.toLocaleDateString();
-                 pdf.text(90,15,'REPORT')
-                 pdf.text(50, 45, `Date: ` + a);
-                 pdf.text(50, 53, `Current: ` + b);
-                 pdf.save("Report");
+
+                 var spreadsheetId = "1KSG6IBgAHO23M8HXaXzTILl5hxC1LfczRvGgzrmpheQ",
+                     url = "https://spreadsheets.google.com/feeds/list/1KSG6IBgAHO23M8HXaXzTILl5hxC1LfczRvGgzrmpheQ/od6/public/basic?alt=json";
+                 $.get({
+                     url: url,
+                     success: function(response) {
+                     var data = response.feed.entry,
+                     len = data.length,
+                     i = len-1,
+                     parsedData = [];
+                     var c = data[i].content.$t.replace('_cokwr:', '');
+                     d=c/b;
+
+                     pdf.text(80,15,'LED LAMP REPORT')
+                     pdf.text(50, 45, `Date: ` + a);
+                     pdf.text(50, 53, `Current: ` + b);
+                     pdf.text(50,62,'Voltage: '+ d);
+                     pdf.text(50,70, 'Energy: '+ c);
+                     pdf.save("Report");}
+                   });
+
+
                 }
                });
                // @param 1 - Coordinate (in units declared at inception of PDF document) against left edge of the page
@@ -391,7 +409,7 @@
                   <div id="chart-container">
                       <p>The chart will render here!</p>
                   </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -408,14 +426,14 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Locate</a>
+                      <a class="dropdown-item" href="{{ url_for('brokenlamp') }}">Locate</a>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <div class="circle" id="myPieChart"><p id="broken" style="font-size:300%;">No Connection</p></div>
+                    <div class="circle" id="myPieChart"><p id="broken" style="font-size:300%;">-</p></div>
                   </div>
                 </div>
               </div>

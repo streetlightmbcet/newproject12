@@ -8,11 +8,13 @@ $.get({
     i = len-1,
     parsedData = [];
     var a = data[i].title.$t;
-    document.getElementById("led").innerHTML =a;
+    if(a===0){document.getElementById("led").innerHTML = 'OFF';}
+    else{document.getElementById("led").innerHTML = 'ON';}
+
   }
 });
-var spreadsheetId = "1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo",
-    url = "https://spreadsheets.google.com/feeds/list/1h6fzleF9TMXItiNlPDFCXpplJ-DlAj8fVmzM0oO7woo/od6/public/basic?alt=json";
+var spreadsheetId = "15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM",
+    url = "https://spreadsheets.google.com/feeds/list/15hqzIqdbUESbm-NrdfKGKwcuCJC_qJslffOs570ttZM/od6/public/basic?alt=json";
 $.get({
     url: url,
     success: function(response) {
@@ -35,8 +37,8 @@ $.get({
     document.getElementById("Voltage").innerHTML =data[i].title.$t;
   }
 });
-var spreadsheetId = "1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y",
-    url = "https://spreadsheets.google.com/feeds/list/1IemZTj6Gg3E-rnTm8rqO_XUic-gaXx155JTHFNGDz5Y/od6/public/basic?alt=json";
+var spreadsheetId = "1kWAr_NW3eGoeW8V_NhR8nff5Xjh1sF60vfiakAjaccs",
+    url = "https://spreadsheets.google.com/feeds/list/1kWAr_NW3eGoeW8V_NhR8nff5Xjh1sF60vfiakAjaccs/od6/public/basic?alt=json";
 
 $.get({
   url: url,
@@ -48,7 +50,7 @@ $.get({
 
     for (i = len-10; i < len; i++) {
       parsedData.push({
-        label: data[i].title.$t.substring(0,data[i].title.$t.length-17),
+        label: data[i].title.$t.substr(-6),
         value: data[i].content.$t.replace('drive: drive, _cpzh4: ', '')
       });
     }
@@ -57,7 +59,7 @@ $.get({
       var chart = new FusionCharts({
           type: 'line',
           renderAt: 'chart-container',
-          width: '100%',
+          width: '675',
           height: '400',
           dataFormat: 'json',
           dataSource: {

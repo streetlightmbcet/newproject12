@@ -22,7 +22,7 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -51,8 +51,10 @@ def login():
 
             return redirect(next)
     return render_template('login.html', form=form)
-
-@app.route('/dashboard')
+@app.route('/')
+def index():
+    return render_template('index.html');
+@app.route('/home')
 @login_required
 def home():
     return render_template('home.html')
@@ -104,4 +106,4 @@ def register():
     return render_template('register.html', form=form)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
