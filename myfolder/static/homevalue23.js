@@ -8,7 +8,7 @@ $.get({
     i = len-1,
     parsedData = [];
     var a = data[i].title.$t;
-    if(a==0){document.getElementById("led").innerHTML = 'OFF';}
+    if(a == '0'){document.getElementById("led").innerHTML = 'OFF';}
     else{document.getElementById("led").innerHTML = 'ON';}
 
   }
