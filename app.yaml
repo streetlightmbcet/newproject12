@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -11,3 +12,18 @@ handlers:
   static_dir: myfolder/static
 - url: /.*
   script: main.app
+=======
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: ssl
+  version: latest
+
+handlers:
+- url: /static
+  static_dir: myfolder/static
+- url: /.*
+  script: main.app
+>>>>>>> d505e4bebead7d368499991cd07a9c0c546906b3
